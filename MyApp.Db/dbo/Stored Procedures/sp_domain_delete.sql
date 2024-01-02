@@ -1,0 +1,13 @@
+﻿CREATE PROCEDURE [dbo].[sp_domain_delete]
+
+	@domain_id UNIQUEIDENTIFIER = NULL
+
+AS
+BEGIN
+
+	SET NOCOUNT ON;
+
+	DELETE FROM DOMAIN
+	WHERE DOMAIN_ID = @domain_id
+
+END

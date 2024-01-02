@@ -1,0 +1,27 @@
+﻿CREATE PROCEDURE [dbo].[sp_region_select]
+
+	@region_id UNIQUEIDENTIFIER = NULL,
+	@name VARCHAR(50) = NULL,
+	@city VARCHAR(50) = NULL
+
+AS
+BEGIN
+
+	SET NOCOUNT ON;
+
+	IF(@region_id IS NOT NULL)
+		
+		SELECT * FROM REGION r (NOLOCK)
+		WHERE r.REGION_ID = @region_id
+
+	ELSE IF(@name IS NOT NULL AND @city IS NOT NULL)
+		
+		SELECT * FROM REGION r (NOLOCK)
+		WHERE r.REGION_NAME = @name
+			AND r.REGION_CITY = @city
+
+	ELSE
+
+		SELECT * FROM REGION r (NOLOCK)
+
+END

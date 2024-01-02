@@ -1,0 +1,13 @@
+﻿CREATE PROCEDURE [dbo].[sp_region_delete]
+
+	@region_id UNIQUEIDENTIFIER = NULL
+
+AS
+BEGIN
+
+	SET NOCOUNT ON;
+	
+	DELETE FROM REGION
+	WHERE REGION_ID = @region_id
+
+END
